@@ -1,0 +1,15 @@
+#tags {
+    margin-top: 20px;
+}
+
+#tags a {
+    display: inline-block;
+    margin: 3px 0;
+    padding: 3px 5px;
+    
+    text-decoration: none;
+}
+#tags a:hover {
+    color: white;
+    background: #0069d9;
+}

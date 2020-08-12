@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Recommendation System</title>
+
+    <link rel="stylesheet" href="{% static 'styles/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/common.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/header.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/player.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/tags.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/recommendations.css' %}">
+
+    <script defer src="{% static 'scripts/jquery-3.5.1.slim.min.js' %}"></script>
+    <script defer src="{% static 'scripts/bootstrap.min.js' %}"></script>
+</head>
+
+<body>
+    {% include 'snippets/header.html' %}
+
+    <div class="container-fluid">
+        {% if requested_video == None %}
+            <p class="sorry-msj">Sorry! Video not found.</p>
+        {% else %}  
+            {% include 'snippets/player.html' with video=requested_video %}
+
+            <hr/>
+
+            <div id="recommendations">
+                {% if channel_recommended_videos|length != 0 %}
+                    <h2>Recommended videos from {{ requested_video.original_channel_title }}</h2>
+                    <div class="channel-recommendations">
+                        {% include 'snippets/recommendations.html' with videos=channel_recommended_videos %}
+                    </div>
+                {% endif %}
+
+                <h2 id="other-recommendations-h2">Other recommendations</h2>
+                {% if other_recommended_videos|length != 0 %}
+                    <div class="other-recommendations">
+                        {% include 'snippets/recommendations.html' with videos=other_recommended_videos %}
+                    </div>
+                {% else %}
+                    <p class="sorry-msj">Sorry! No recommended videos.</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

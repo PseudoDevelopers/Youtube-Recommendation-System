@@ -1,0 +1,35 @@
+header {
+    margin-bottom: 20px;
+    padding: 10px 15vw 10px 7vw;
+    
+    background: #3080d6;
+}
+
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+header a {
+    color: white;
+}
+header a:hover {
+    color: rgb(231, 231, 231);
+    text-decoration: none;
+}
+
+/* Form */
+form input {
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+form input[type="text"] {
+    width: 300px;
+}
+form input[type="submit"] {
+    background: white;
+}

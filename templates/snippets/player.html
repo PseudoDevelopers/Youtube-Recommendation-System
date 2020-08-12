@@ -1,0 +1,52 @@
+<div id="current-video-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/{{ video.video_id }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <h2>{{video.original_title}}</h2>
+    <!-- Stats -->
+    <div id="stats">
+        <p>Channel: <span>{{ video.original_channel_title }}</span></p>
+        <p>Views: <span>{{ video.views }}</span></p>
+        <p>Likes: <span>{{ video.likes }}</span></p>
+        <p>Dislikes: <span>{{ video.dislikes }}</span></p>
+        <p>Total comments: <span>{{ video.total_comments }}</span></p>
+    </div>
+
+    <!-- Description -->
+    <h4>Description</h4>
+        <p id="description">
+            {% if video.original_description|length > 300 %}
+                {{ video.original_description|slice:":300" }}
+                <span class="dots">...</span>
+                <span class="more-text">{{ video.original_description|slice:"200:" }}</span>
+            {% else %}
+                {{ video.original_description }}
+            {% endif %}
+        </p>
+        {% if video.original_description|length > 200 %}
+            <button class="btn btn-primary" onclick="toogleDescription()">See more</button>
+        {% endif %}
+
+    <div id="tags">
+        <h4>Tags</h4>
+        {% for tag in video.tags %}
+            <a href="/search?q={{ tag }}" class="border border-primary rounded">
+                {{ tag }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    const DESCRIPTION = document.getElementById('description')
+    const READ_MORE_BTN = document.querySelector("#description + button")
+
+    function toogleDescription() {
+        DESCRIPTION.classList.toggle('extended')
+
+        if (DESCRIPTION.classList.contains('extended')) {
+            READ_MORE_BTN.innerText = 'See less'
+        } else {
+            READ_MORE_BTN.innerText = 'See more'
+        }
+    }
+</script>

@@ -1,0 +1,21 @@
+{% for video in videos %}
+    <div class="video-card">    
+        <a href="/watch?v={{ video.video_id }}">
+            <img src="{{video.thumbnail_link}}" alt="Thumbnail" />  
+
+            <h5 title="{{ video.original_title }}">
+                {% if video.original_title|length > 25 %}
+                    {{ video.original_title|slice:":25" }}...
+                {% else %}
+                    {{ video.original_title }}
+                {% endif %}
+            </h5>
+        </a>
+
+        <div class="stats">
+            <span>{{ video.views }} views<span>
+            •
+            <span>{{ video.publish_date }}<span>
+        </div>
+    </div>
+{% endfor %}

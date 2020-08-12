@@ -1,0 +1,34 @@
+#current-video-container {
+    --container-width: 70vw;
+    width: var(--container-width);
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+iframe {
+    width: 100%;
+    height: calc(var(--container-width) / 2.5);
+}
+
+
+/* Stats */
+#stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    width: 100%;
+}
+#stats p/*****/ { font-weight: bold; }
+#stats span/**/ { font-weight: normal; }
+
+
+/* description */
+/* #description { text-align: justify; } */
+
+#description .dots { display: inline; }
+#description .more-text { display: none; }
+
+#description.extended .dots { display: none; }
+#description.extended .more-text { display: initial; }
