@@ -1,6 +1,9 @@
 # Preview
 ![preview.gif](images/preview.gif)
 
+# Libraries required
+Install dependencies from [requirements.txt](requirements.txt).
+
 # Directory structure
 * There is a directory called ```preprocessing```. It is used to clean & preprocess the data.
 * The second directory is ```processing```. It contains all the AI algorithms.
