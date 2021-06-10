@@ -1,8 +1,6 @@
-## Libraries required
-First run this command to install required libraries.
-```
-pip install pandas numpy nltk sklearn django
-```
+# Preview
+![preview.gif](images/preview.gif)
+
 # Directory structure
 * There is a directory called ```preprocessing```. It is used to clean & preprocess the data.
 * The second directory is ```processing```. It contains all the AI algorithms.
@@ -19,7 +17,7 @@ pip install pandas numpy nltk sklearn django
 * You can also search videos. Or click on a particular tag to see recommendations.
 
 # Dataset
-The dataset used is available here [kaggle.com/datasnaek/youtube-new](https://www.kaggle.com/datasnaek/youtube-new)
+The dataset used is available here [kaggle.com/datasnaek/youtube-new](https://www.kaggle.com/datasnaek/youtube-new).
 
 ### Columns
 There are 16 different columns. Including video title, description, tags, likes, dislikes, number of 
